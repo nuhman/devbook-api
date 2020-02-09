@@ -30,6 +30,7 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => 
             res.status(200).json(profile);
         }).catch(err => {
             errors.ProfileError = 'Server Error. Please try again later.';
+            console.log(err);
             res.status(500).json(errors);
         });
 });
